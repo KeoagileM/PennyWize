@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Penny-Wize</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="view_expenses">View Expenses</string>
+    <string name="categories">Categories</string>
+    <string name="goals">Goals</string>
+    <string name="category_totals">Category Totals</string>
+    <string name="logout">Logout</string>
+</resources>

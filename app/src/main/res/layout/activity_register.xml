@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A0E1A"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Penny-Wize"
+        android:textColor="#4A9EFF"
+        android:textSize="36sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/etFullName"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:hint="Full Name"
+        android:textColorHint="#8A9BB5"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/input_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/etRegUsername"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:hint="Username"
+        android:textColorHint="#8A9BB5"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/input_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etRegPassword"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:hint="Password"
+        android:textColorHint="#8A9BB5"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/input_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:hint="Confirm Password"
+        android:textColorHint="#8A9BB5"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/input_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:text="CREATE ACCOUNT"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4A9EFF"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnBackToLogin"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:text="BACK TO LOGIN"
+        android:textColor="#4A9EFF"
+        android:backgroundTint="#1A2035"/>
+
+</LinearLayout>
