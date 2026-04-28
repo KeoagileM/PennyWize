@@ -46,6 +46,32 @@ Each rating is color-coded and displayed alongside the remaining balance for qui
   - Expenses
   - Categories
   - Goals
+  
+  ## User Interface Design
+
+One of the key design decisions in this application was the use of emojis instead of traditional icons throughout the interface.
+
+### Why Emojis?
+
+Instead of relying on standard icon libraries, emojis were intentionally used to introduce a more playful and engaging experience. This approach reflects a light form of **gamification**, where the interface feels less rigid and more interactive.
+
+### Design Goals
+
+- **Enhanced visual appeal**  
+  Emojis are naturally more colourful and expressive than conventional icons, making the interface feel vibrant and modern.
+
+- **Improved user engagement**  
+  The use of familiar and fun visuals encourages users to interact more frequently with the app, especially for routine actions like adding expenses.
+
+- **Appeal to younger users**  
+  The design is tailored to be approachable and relatable, particularly for younger audiences who regularly use emojis in everyday communication.
+
+- **Simplified navigation**  
+  Emojis are widely recognizable, helping users quickly understand features without needing to learn new icon meanings.
+
+### 💡 Overall Impact
+
+This design choice helps transform the application from a standard budgeting tool into a more user-friendly and engaging platform, making financial tracking feel less intimidating and more interactive.
 
 ## Tech Stack
 
