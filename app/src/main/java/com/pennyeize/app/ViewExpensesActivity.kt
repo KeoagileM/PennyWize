@@ -175,6 +175,8 @@ class ViewExpensesActivity : AppCompatActivity() {
                         Toast.makeText(this@ViewExpensesActivity, "No expenses found for this period", Toast.LENGTH_SHORT).show()
                     }
 
+                    (lvExpenses.adapter as? BaseAdapter)?.notifyDataSetChanged()
+
                     val adapter = object : ArrayAdapter<Expense>(
                         this@ViewExpensesActivity,
                         R.layout.item_expense,
@@ -206,6 +208,7 @@ class ViewExpensesActivity : AppCompatActivity() {
                     }
                     lvExpenses.adapter = adapter
                     adapter.notifyDataSetChanged()
+                    setListViewHeightBasedOnChildren(lvExpenses)
 
                     lvExpenses.setOnItemLongClickListener { _, _, position, _ ->
                         val selectedExpense = expenseList[position]
@@ -232,6 +235,24 @@ class ViewExpensesActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun setListViewHeightBasedOnChildren(listView: ListView) {
+        val listAdapter = listView.adapter ?: return
+
+        var totalHeight = 0
+        val desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.width, View.MeasureSpec.UNSPECIFIED)
+
+        for (i in 0 until listAdapter.count) {
+            val listItem = listAdapter.getView(i, null, listView)
+            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
+            totalHeight += listItem.measuredHeight
+        }
+
+        val params = listView.layoutParams
+        params.height = totalHeight + (listView.dividerHeight * (listAdapter.count - 1))
+        listView.layoutParams = params
+        listView.requestLayout()
     }
 
     //method that allows the user to delete an expense

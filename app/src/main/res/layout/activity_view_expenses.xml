@@ -147,7 +147,7 @@
             <ListView
                 android:id="@+id/lvExpenses"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:divider="#1F2937"
                 android:dividerHeight="1dp"/>
         </LinearLayout>
