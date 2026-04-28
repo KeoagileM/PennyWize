@@ -14,4 +14,9 @@ interface GoalDao {
 
     @Query("SELECT * FROM goals WHERE userId = :userId")
     suspend fun getAllGoals(userId: Int): List<Goal>
+
+    @Delete
+    suspend fun deleteGoal(goal: Goal)
+
+
 }

@@ -201,24 +201,59 @@ class GoalsActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            try {
-                val goal = Goal(
-                    userId = userId,
-                    minimumGoal = minGoal,
-                    maximumGoal = maxGoal,
-                    month = month
-                )
-                db.goalDao().insertGoal(goal)
+            val existingGoal = db.goalDao().getGoalByMonth(userId, month)
+
+            if (existingGoal != null) {
+
                 runOnUiThread {
-                    Toast.makeText(this@GoalsActivity, "Goals saved!", Toast.LENGTH_SHORT).show()
-                    loadCurrentGoals()
+                    androidx.appcompat.app.AlertDialog.Builder(this@GoalsActivity)
+                        .setTitle("Goal Already Exists")
+                        .setMessage("You already have a goal set for $month. What would you like to do?")
+                        .setPositiveButton("✏️ Edit Goal") { _, _ ->
+                            loadExistingGoal(existingGoal)
+                        }
+                        .setNeutralButton("🔁 Replace") { _, _ ->
+                            overwriteGoalMode(existingGoal)
+                        }
+                        .setNegativeButton("Cancel", null)
+                        .show()
                 }
-            } catch (e: Exception) {
-                Log.e("GoalsActivity", "Error saving goal: ${e.message}")
-                runOnUiThread {
-                    Toast.makeText(this@GoalsActivity, "Error saving goals", Toast.LENGTH_SHORT).show()
-                }
+
+                return@launch
+            }
+
+            val goal = Goal(
+                userId = userId,
+                minimumGoal = minGoal,
+                maximumGoal = maxGoal,
+                month = month
+            )
+
+            db.goalDao().insertGoal(goal)
+
+            runOnUiThread {
+                Toast.makeText(this@GoalsActivity, "Goal saved!", Toast.LENGTH_SHORT).show()
+                loadCurrentGoals()
             }
         }
+    }
+
+    private fun overwriteGoalMode(existingGoal: Goal) {
+        lifecycleScope.launch {
+            db.goalDao().deleteGoal(existingGoal)
+            runOnUiThread {
+                Toast.makeText(this@GoalsActivity, "You can now create a new goal", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun loadExistingGoal(goal: Goal) {
+        etMonth.setText(goal.month)
+        etMinGoal.setText(goal.minimumGoal.toString())
+        etMaxGoal.setText(goal.maximumGoal.toString())
+
+        seekBarMin.progress = goal.minimumGoal.toInt()
+        seekBarMax.progress = goal.maximumGoal.toInt()
+
+        Toast.makeText(this, "You can now edit your existing goal", Toast.LENGTH_SHORT).show()
     }
 }
