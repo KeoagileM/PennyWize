@@ -69,7 +69,7 @@ Instead of relying on standard icon libraries, emojis were intentionally used to
 - **Simplified navigation**  
   Emojis are widely recognizable, helping users quickly understand features without needing to learn new icon meanings.
 
-### 💡 Overall Impact
+### Overall Impact
 
 This design choice helps transform the application from a standard budgeting tool into a more user-friendly and engaging platform, making financial tracking feel less intimidating and more interactive.
 
