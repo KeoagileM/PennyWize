@@ -1,25 +1,25 @@
-# 💰 PennyWize – Personal Finance Tracker App
+# PennyWize – Personal Finance Tracker App
 
 PennyWize is an Android budgeting and expense tracking application designed to help users manage their monthly finances, set savings goals, track expenses, and monitor their remaining budget in real time.
 
-## 📱 Features
+## Features
 
-### 🔐 Authentication
+### Authentication
 - User registration and login system
 - Session-based user tracking
 
-### 💸 Expense Management
+### Expense Management
 - Add, edit, and delete expenses
 - Attach descriptions, categories, dates, and optional images
 - Filter expenses by date range
 - View total spending for selected periods
 
-### 📊 Budget & Goals System
+### Budget & Goals System
 - Set monthly minimum and maximum budget goals
 - Track remaining balance automatically
 - Prevent duplicate goals per month (planned enhancement)
 
-### 📈 Dashboard Overview
+### Dashboard Overview
 - Displays:
   - Total monthly expenses
   - Remaining balance
