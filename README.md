@@ -47,7 +47,7 @@ Each rating is color-coded and displayed alongside the remaining balance for qui
   - Categories
   - Goals
 
-##Tech Stack
+## Tech Stack
 
 - **Language:** Kotlin  
 - **Database:** RoomDb 
@@ -56,7 +56,7 @@ Each rating is color-coded and displayed alongside the remaining balance for qui
 - **Concurrency:** Kotlin Coroutines  
 - **Image Loading:** Glide  
 
-##Database Structure
+## Database Structure
 
 - **User Table**
 - **Expense Table**
@@ -65,7 +65,7 @@ Each rating is color-coded and displayed alongside the remaining balance for qui
 
 Room DAOs handle all CRUD operations including filtering, updates, and aggregations.
 
-##Core Logic
+## Core Logic
 
 - Expenses are filtered by date range using SQL queries
 - Total expenses are calculated using `sumOf { it.amount }`
@@ -90,3 +90,5 @@ Developed as a personal finance management project using Android (Kotlin) and Ro
 ##  Note
 
 This project focuses on practical budgeting logic, clean UI structure, and real-world financial tracking behaviour suitable for personal or academic use.
+### Youtube demonstration Video:
+-https://youtu.be/E4bYMsYYWsc
