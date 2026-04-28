@@ -1,7 +1,14 @@
 package com.pennywize.app
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
@@ -159,26 +166,96 @@ class HomeActivity : AppCompatActivity() {
             try {
                 val sdf = SimpleDateFormat("yyyy-MM", Locale.getDefault())
                 val currentMonth = sdf.format(Date())
+
                 val startDate = "$currentMonth-01"
                 val calendar = Calendar.getInstance()
                 calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
                 val endDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.time)
+
                 val expenses = db.expenseDao().getExpensesByPeriod(userId, startDate, endDate)
                 Log.d("DEBUG", "Expenses size: ${expenses.size}")
+
                 val totalExpense = expenses.sumOf { it.amount }
                 val goal = db.goalDao().getGoalByMonth(userId, currentMonth)
 
-
                 runOnUiThread {
+
+
                     tvTotalExpenses.text = "R %.2f".format(totalExpense)
+
                     if (goal != null) {
-                        val totalBalance = goal.maximumGoal.minus(totalExpense)
-                        tvRemainingBalance.text = "R %.2f".format(totalBalance)
+
+                        val totalBalance = goal.maximumGoal - totalExpense
+
                         tvMaxBudget.text = "R %.2f".format(goal.maximumGoal)
                         tvMinGoal.text = "R %.2f".format(goal.minimumGoal)
                         tvMaxGoal.text = "R %.2f".format(goal.maximumGoal)
+
+
+                        val budgetUsedPercent =
+                            if (goal.maximumGoal > 0)
+                                (totalExpense / goal.maximumGoal) * 100
+                            else 0.0
+
+                        val (ratingText, ratingColor, amountColor) = when {
+                            budgetUsedPercent <= 50 ->
+                                Triple("Excellent", "#4CAF50", "#4CAF50")
+
+                            budgetUsedPercent <= 80 ->
+                                Triple("On Track", "#4A9EFF", "#4A9EFF")
+
+                            budgetUsedPercent <= 100 ->
+                                Triple("Caution Zone", "#FF9800", "#FF9800")
+
+                            else ->
+                                Triple("Over Budget", "#F44336", "#F44336")
+                        }
+
+                        val fullText = "R %.2f   %s".format(totalBalance, ratingText)
+
+                        val spannable = android.text.SpannableString(fullText)
+
+                        val ratingStartIndex = fullText.indexOf(ratingText)
+
+
+                        spannable.setSpan(
+                            android.text.style.ForegroundColorSpan(
+                                android.graphics.Color.parseColor(amountColor)
+                            ),
+                            0,
+                            ratingStartIndex,
+                            android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+
+                        spannable.setSpan(
+                            android.text.style.ForegroundColorSpan(
+                                android.graphics.Color.parseColor(ratingColor)
+                            ),
+                            ratingStartIndex,
+                            fullText.length,
+                            android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+                        spannable.setSpan(
+                            android.text.style.RelativeSizeSpan(0.50f),
+                            ratingStartIndex,
+                            fullText.length,
+                            android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+                        spannable.setSpan(
+                            android.text.style.StyleSpan(android.graphics.Typeface.ITALIC),
+                            ratingStartIndex,
+                            fullText.length,
+                            android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+
+
+                        tvRemainingBalance.text = spannable
                     }
                 }
+
             } catch (e: Exception) {
                 Log.e("HomeActivity", "Error loading dashboard: ${e.message}")
             }
