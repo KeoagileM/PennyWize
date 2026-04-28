@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PennyWize color palette -->
+    <color name="primary_blue">#4A9EFF</color>
+    <color name="dark_background">#0A0E1A</color>
+    <color name="card_background">#1A2035</color>
+    <color name="text_secondary">#8A9BB5</color>
+    <color name="green_accent">#4AFF9E</color>
+    <color name="red_accent">#FF4A4A</color>
+    <color name="white">#FFFFFF</color>
+</resources>
