@@ -16,6 +16,7 @@ import com.pennywize.app.model.Expense
 import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
+import android.app.TimePickerDialog
 import java.util.*
 
 class ViewExpensesActivity : AppCompatActivity() {
@@ -148,6 +149,7 @@ class ViewExpensesActivity : AppCompatActivity() {
         }
     }
 
+
     private fun loadExpenses() {
         val startDate = etStartDate.text.toString().trim()
         val endDate = etEndDate.text.toString().trim()
@@ -205,6 +207,24 @@ class ViewExpensesActivity : AppCompatActivity() {
                     }
                     lvExpenses.adapter = adapter
                     adapter.notifyDataSetChanged()
+
+                    lvExpenses.setOnItemLongClickListener { _, _, position, _ ->
+                        val selectedExpense = expenseList[position]
+
+                        val options = arrayOf("✏️ Edit", "🗑️ Delete")
+
+                        val builder = androidx.appcompat.app.AlertDialog.Builder(this@ViewExpensesActivity)
+                        builder.setTitle("Choose Action")
+                        builder.setItems(options) { _, which ->
+                            when (which) {
+                                0 -> showEditDialog(selectedExpense)
+                                1 -> showDeleteDialog(selectedExpense)
+                            }
+                        }
+                        builder.show()
+
+                        true
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("ViewExpensesActivity", "Error loading expenses: ${e.message}")
@@ -213,8 +233,102 @@ class ViewExpensesActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    //method that allows the user to delete an expense
+    private fun showDeleteDialog(expense: Expense) {
 
+        //dialog box to let the user confirm delete
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+
+        builder.setTitle("Delete Expense")
+        builder.setMessage("Are you sure you want to delete this expense?")
+
+        builder.setPositiveButton("Delete") { _, _ ->
+            lifecycleScope.launch {
+                db.expenseDao().deleteExpense(expense)
+
+                runOnUiThread {
+                    Toast.makeText(this@ViewExpensesActivity, "Expense deleted", Toast.LENGTH_SHORT).show()
+                    loadExpenses()
+                }
+            }
+        }
+
+        builder.setNegativeButton("Cancel", null)
+
+        builder.show()
+    }
+
+    //methd to allow the user to edit an expense
+    private fun showEditDialog(expense: Expense) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_edit_expense, null)
+
+        val etTitle = dialogView.findViewById<EditText>(R.id.etEditTitle)
+        val etAmount = dialogView.findViewById<EditText>(R.id.etEditAmount)
+        val etDate = dialogView.findViewById<EditText>(R.id.etEditDate)
+        val etTime = dialogView.findViewById<EditText>(R.id.etEditTime)
+        val etDescription = dialogView.findViewById<EditText>(R.id.etEditDescription)
+        val btnUpdate = dialogView.findViewById<Button>(R.id.btnUpdateExpense)
+
+        // Prefill
+        etTitle.setText(expense.title)
+        etAmount.setText(expense.amount.toString())
+        etDate.setText(expense.date)
+        etTime.setText(expense.time)
+        etDescription.setText(expense.description)
+
+        // DATE PICKER
+        etDate.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            DatePickerDialog(this,
+                { _, year, month, day ->
+                    etDate.setText(String.format("%04d-%02d-%02d", year, month + 1, day))
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+
+        // TIME PICKER
+        etTime.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            TimePickerDialog(this,
+                { _, hour, minute ->
+                    etTime.setText(String.format("%02d:%02d", hour, minute))
+                },
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE),
+                true
+            ).show()
+        }
+
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        dialog.show()
+
+        btnUpdate.setOnClickListener {
+            val updatedExpense = expense.copy(
+                title = etTitle.text.toString(),
+                amount = etAmount.text.toString().toDoubleOrNull() ?: 0.0,
+                date = etDate.text.toString(),
+                time = etTime.text.toString(),
+                description = etDescription.text.toString()
+            )
+
+            lifecycleScope.launch {
+                db.expenseDao().updateExpense(updatedExpense)
+
+                runOnUiThread {
+                    Toast.makeText(this@ViewExpensesActivity, "Expense updated", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                    loadExpenses()
+                }
+            }
+        }
     }
 
     override fun onResume() {

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="#111827">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✏️ Edit Expense"
+            android:textColor="#60A5FA"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- TITLE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="#60A5FA"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etEditTitle"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Title"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#94A3B8"
+            android:background="#1F2937"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- AMOUNT -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount (R)"
+            android:textColor="#60A5FA"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etEditAmount"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="numberDecimal"
+            android:hint="Amount"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#94A3B8"
+            android:background="#1F2937"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- DATE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="#60A5FA"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etEditDate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="Date"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#94A3B8"
+            android:background="#1F2937"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- TIME -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textColor="#60A5FA"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etEditTime"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="Edit"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#94A3B8"
+            android:background="#1F2937"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- DESCRIPTION -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#60A5FA"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etEditDescription"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Description"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#94A3B8"
+            android:background="#1F2937"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- UPDATE BUTTON -->
+        <Button
+            android:id="@+id/btnUpdateExpense"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="UPDATE"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2563EB"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</ScrollView>
