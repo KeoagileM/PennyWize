@@ -45,24 +45,47 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    // Register user
     private fun registerUser() {
         val fullName = etFullName.text.toString().trim()
         val username = etUsername.text.toString().trim()
         val password = etPassword.text.toString().trim()
         val confirmPassword = etConfirmPassword.text.toString().trim()
 
+        // Check empty fields
         if (fullName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Check passwords match
         if (password != confirmPassword) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (password.length < 6) {
-            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+        // Minimum length: 9 characters
+        if (password.length < 9) {
+            Toast.makeText(this, "Password must be at least 9 characters long", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Must contain at least one digit
+        if (!password.any { it.isDigit() }) {
+            Toast.makeText(this, "Password must contain at least one number", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Must contain at least one special character
+        val specialChars = "!@#\$%^&*()-_=+[]{}|;:',.<>?/`~\\"
+        if (!password.any { it in specialChars }) {
+            Toast.makeText(this, "Password must contain at least one special character (!@#\$% etc.)", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Must contain at least one letter
+        if (!password.any { it.isLetter() }) {
+            Toast.makeText(this, "Password must contain at least one letter", Toast.LENGTH_LONG).show()
             return
         }
 
