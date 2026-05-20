@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Permissions -->
-    <uses-permission android:name="android.permission.CAMERA"
+    <uses-permission
+        android:name="android.permission.CAMERA"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28"
-        tools:ignore="ScopedStorage"/>
+        tools:ignore="ScopedStorage" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
-        tools:ignore="ScopedStorage"/>
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -24,59 +24,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PennyWize"
         tools:targetApi="31">
-
+        <activity
+            android:name="com.pennyeize.app.AnalyticsActivity"
+            android:exported="false" />
         <!-- Splash Activity (Launcher) -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.PennyWize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+                <action android:name="android.intent.action.MAIN" />
 
-        <!-- Main Login Activity -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Main Login Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
-
-        <!-- Register Activity -->
+            android:exported="false" /> <!-- Register Activity -->
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"/>
-
-        <!-- Home Activity -->
+            android:exported="false" /> <!-- Home Activity -->
         <activity
             android:name=".HomeActivity"
-            android:exported="false"/>
-
-        <!-- Add Expense Activity -->
+            android:exported="false" /> <!-- Add Expense Activity -->
         <activity
             android:name=".AddExpenseActivity"
-            android:exported="false"/>
-
-        <!-- View Expenses Activity -->
+            android:exported="false" /> <!-- View Expenses Activity -->
         <activity
             android:name=".ViewExpensesActivity"
-            android:exported="false"/>
-
-        <!-- Categories Activity -->
+            android:exported="false" /> <!-- Categories Activity -->
         <activity
             android:name=".CategoriesActivity"
-            android:exported="false"/>
-
-        <!-- Goals Activity -->
+            android:exported="false" /> <!-- Goals Activity -->
         <activity
             android:name=".GoalsActivity"
-            android:exported="false"/>
-
-        <!-- Category Totals Activity -->
+            android:exported="false" /> <!-- Category Totals Activity -->
         <activity
             android:name=".CategoryTotalsActivity"
-            android:exported="false"/>
-
-        <!-- FileProvider for camera photos -->
+            android:exported="false" /> <!-- FileProvider for camera photos -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.pennywize.app.fileprovider"
@@ -84,9 +69,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>
