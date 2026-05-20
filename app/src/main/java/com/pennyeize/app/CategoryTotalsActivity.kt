@@ -97,12 +97,14 @@ class CategoryTotalsActivity : AppCompatActivity() {
         val navExpenses = findViewById<LinearLayout>(R.id.navExpenses)
         val navCategories = findViewById<LinearLayout>(R.id.navCategories)
         val navGoals = findViewById<LinearLayout>(R.id.navGoals)
+        val navAnalytics = findViewById<LinearLayout>(R.id.navAnalytics)
 
 
         setInactiveTab(navHome)
         setInactiveTab(navExpenses)
         setInactiveTab(navCategories)
         setInactiveTab(navGoals)
+        setInactiveTab(navAnalytics)
 
         navHome.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
@@ -124,6 +126,12 @@ class CategoryTotalsActivity : AppCompatActivity() {
 
         navGoals.setOnClickListener {
             val intent = Intent(this, GoalsActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
+        navAnalytics.setOnClickListener {
+            val intent = Intent(this, AnalyticsActivity::class.java)
             intent.putExtra("userId", userId)
             startActivity(intent)
         }

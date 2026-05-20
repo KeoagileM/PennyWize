@@ -53,11 +53,14 @@ class CategoriesActivity : AppCompatActivity() {
         val navExpenses = findViewById<LinearLayout>(R.id.navExpenses)
         val navCategories = findViewById<LinearLayout>(R.id.navCategories)
         val navGoals = findViewById<LinearLayout>(R.id.navGoals)
+        val navAnalytics = findViewById<LinearLayout>(R.id.navAnalytics)
 
-        setActiveTab(navCategories)
+        setActiveTab(navHome)
         setInactiveTab(navExpenses)
-        setInactiveTab(navHome)
+        setInactiveTab(navCategories)
         setInactiveTab(navGoals)
+        setInactiveTab(navAnalytics)
+
 
         navHome.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
@@ -72,11 +75,18 @@ class CategoriesActivity : AppCompatActivity() {
         }
 
         navCategories.setOnClickListener {
+
             Toast.makeText(this, "Already on Categories", Toast.LENGTH_SHORT).show()
         }
 
         navGoals.setOnClickListener {
             val intent = Intent(this, GoalsActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
+        navAnalytics.setOnClickListener {
+            val intent = Intent(this, AnalyticsActivity::class.java)
             intent.putExtra("userId", userId)
             startActivity(intent)
         }

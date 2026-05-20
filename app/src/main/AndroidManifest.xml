@@ -24,9 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PennyWize"
         tools:targetApi="31">
-        <activity
-            android:name="com.pennyeize.app.AnalyticsActivity"
-            android:exported="false" />
+
         <!-- Splash Activity (Launcher) -->
         <activity
             android:name=".SplashActivity"
@@ -62,6 +60,9 @@
         <activity
             android:name=".CategoryTotalsActivity"
             android:exported="false" /> <!-- FileProvider for camera photos -->
+        <activity
+            android:name=".AnalyticsActivity"
+            android:exported="false" /> <!-- Analytics Activity -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.pennywize.app.fileprovider"

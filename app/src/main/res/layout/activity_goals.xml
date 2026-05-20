@@ -205,14 +205,14 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
+    <!-- ── Bottom Navigation (5 tabs) ─────────────────────────────────── -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:background="#0E1528"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingHorizontal="6dp">
+        android:paddingHorizontal="4dp">
 
         <LinearLayout
             android:id="@+id/navHome"
@@ -221,24 +221,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_margin="4dp"
-            android:background="#DCD3EA">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🏠"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textColor="#FFFFFF"
-                android:textSize="11sp"
-                android:textStyle="bold" />
+            android:layout_margin="3dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🏠" android:textColor="#5A9BFF" android:textSize="16sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Home" android:textColor="#5A9BFF" android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -248,22 +235,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_margin="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="💸"
-                android:textColor="#5A9BFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Expenses"
-                android:textColor="#5A9BFF"
-                android:textSize="11sp" />
+            android:layout_margin="3dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💸" android:textColor="#5A9BFF" android:textSize="16sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Expenses" android:textColor="#5A9BFF" android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -273,22 +249,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_margin="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📁"
-                android:textColor="#5A9BFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Categories"
-                android:textColor="#5A9BFF"
-                android:textSize="11sp" />
+            android:layout_margin="3dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📁" android:textColor="#5A9BFF" android:textSize="16sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Categories" android:textColor="#5A9BFF" android:textSize="9sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -298,22 +263,31 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_margin="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🏆"
-                android:textColor="#5A9BFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Goals"
-                android:textColor="#5A9BFF"
-                android:textSize="11sp" />
+            android:layout_margin="3dp"
+            android:background="#DCD3EA">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🏆" android:textColor="#1F2937" android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Goals" android:textColor="#1F2937" android:textSize="10sp"
+                android:textStyle="bold"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navAnalytics"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_margin="3dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📈" android:textColor="#5A9BFF" android:textSize="16sp"
+                />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Analytics" android:textColor="#5A9BFF" android:textSize="10sp"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
