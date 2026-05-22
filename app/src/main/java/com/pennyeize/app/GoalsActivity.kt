@@ -22,6 +22,7 @@ class GoalsActivity : AppCompatActivity() {
     private lateinit var btnSaveGoal: Button
     private lateinit var btnBack: Button
     private lateinit var tvCurrentGoals: TextView
+    private lateinit var btnLogout: Button
     private lateinit var db: AppDatabase
     private var userId: Int = 0
 
@@ -40,6 +41,7 @@ class GoalsActivity : AppCompatActivity() {
         btnSaveGoal = findViewById(R.id.btnSaveGoal)
         btnBack = findViewById(R.id.btnBack)
         tvCurrentGoals = findViewById(R.id.tvCurrentGoals)
+        btnLogout = findViewById(R.id.btnLogout)
 
         val sdf = SimpleDateFormat("yyyy-MM", Locale.getDefault())
         etMonth.setText(sdf.format(Date()))
@@ -52,6 +54,11 @@ class GoalsActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
+            finish()
+        }
+
+        btnLogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 

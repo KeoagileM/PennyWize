@@ -27,6 +27,9 @@ class AnalyticsActivity : AppCompatActivity() {
     private lateinit var tvNoBudget: TextView
     private lateinit var tvProgressLabel: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var btnLogout: Button
+
+
 
     // Pie chart colours that match the app palette
     private val chartColors = listOf(
@@ -60,7 +63,14 @@ class AnalyticsActivity : AppCompatActivity() {
         tvNoBudget      = findViewById(R.id.tvNoBudget)
         tvProgressLabel = findViewById(R.id.tvProgressLabel)
         progressBar     = findViewById(R.id.budgetProgressBar)
+        btnLogout       = findViewById(R.id.btnLogout)
+
+        btnLogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
+
 
     private fun loadAnalytics() {
         lifecycleScope.launch {

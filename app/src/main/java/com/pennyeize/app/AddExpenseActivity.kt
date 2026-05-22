@@ -42,6 +42,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private var photoPath: String? = null
     private var categoryList = mutableListOf<Category>()
     private lateinit var photoUri: Uri
+    private lateinit var btnLogout: Button
 
     companion object {
         private const val REQUEST_IMAGE_CAPTURE = 1
@@ -63,6 +64,8 @@ class AddExpenseActivity : AppCompatActivity() {
         setupSaveButton()
         setupBackButton()
         setupBottomNavigation()
+
+
     }
 
     private fun initViews() {
@@ -76,6 +79,13 @@ class AddExpenseActivity : AppCompatActivity() {
         btnSaveExpense = findViewById(R.id.btnSaveExpense)
         btnBack = findViewById(R.id.btnBack)
         ivReceiptPhoto = findViewById(R.id.ivReceiptPhoto)
+        btnLogout = findViewById<Button>(R.id.btnLogout)
+
+
+        btnLogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     private fun loadCategories() {

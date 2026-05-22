@@ -24,6 +24,7 @@ class CategoryTotalsActivity : AppCompatActivity() {
     private lateinit var db: AppDatabase
     private var userId: Int = 0
     private val categoryTotalsList = mutableListOf<Pair<String, Double>>()
+    private lateinit var btnLogout: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class CategoryTotalsActivity : AppCompatActivity() {
         btnFilter = findViewById(R.id.btnFilter)
         btnBack = findViewById(R.id.btnBack)
         lvCategoryTotals = findViewById(R.id.lvCategoryTotals)
+        btnLogout = findViewById(R.id.btnLogout)
 
         setupDatePickers()
         loadCategoryTotals()
@@ -49,6 +51,10 @@ class CategoryTotalsActivity : AppCompatActivity() {
             finish()
         }
 
+        btnLogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
         setupBottomNavigation()
     }
 
@@ -102,7 +108,7 @@ class CategoryTotalsActivity : AppCompatActivity() {
 
         setInactiveTab(navHome)
         setInactiveTab(navExpenses)
-        setInactiveTab(navCategories)
+        setActiveTab(navCategories)
         setInactiveTab(navGoals)
         setInactiveTab(navAnalytics)
 

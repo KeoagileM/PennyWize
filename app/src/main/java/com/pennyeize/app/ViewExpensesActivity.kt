@@ -29,6 +29,7 @@ class ViewExpensesActivity : AppCompatActivity() {
     private lateinit var db: AppDatabase
     private var userId: Int = 0
     private val expenseList = mutableListOf<Expense>()
+    private lateinit var btnlogout: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,8 @@ class ViewExpensesActivity : AppCompatActivity() {
         btnBack = findViewById(R.id.btnBack)
         lvExpenses = findViewById(R.id.lvExpenses)
         tvTotal = findViewById(R.id.tvTotal)
+        btnlogout = findViewById(R.id.btnLogout)
+
 
         setupDatePickers()
         loadExpenses()
@@ -55,6 +58,10 @@ class ViewExpensesActivity : AppCompatActivity() {
             finish()
         }
 
+        btnlogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
         setupBottomNavigation()
     }
 

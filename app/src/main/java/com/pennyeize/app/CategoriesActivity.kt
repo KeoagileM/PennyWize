@@ -21,6 +21,8 @@ class CategoriesActivity : AppCompatActivity() {
     private lateinit var db: AppDatabase
     private var userId: Int = 0
     private val categoryList = mutableListOf<Category>()
+    private lateinit var btnLogout: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class CategoriesActivity : AppCompatActivity() {
         btnAddCategory = findViewById(R.id.btnAddCategory)
         btnBack = findViewById(R.id.btnBack)
         containerCategories = findViewById(R.id.containerCategories)
+        btnLogout = findViewById(R.id.btnLogout)
 
         loadCategories()
 
@@ -41,6 +44,11 @@ class CategoriesActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
+            finish()
+        }
+
+        btnLogout.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
@@ -55,9 +63,9 @@ class CategoriesActivity : AppCompatActivity() {
         val navGoals = findViewById<LinearLayout>(R.id.navGoals)
         val navAnalytics = findViewById<LinearLayout>(R.id.navAnalytics)
 
-        setActiveTab(navHome)
+        setInactiveTab(navHome)
         setInactiveTab(navExpenses)
-        setInactiveTab(navCategories)
+        setActiveTab(navCategories)
         setInactiveTab(navGoals)
         setInactiveTab(navAnalytics)
 
