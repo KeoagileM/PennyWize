@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Background for an UNLOCKED achievement — brighter border gives a "glow" feel -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#1E293B" />
+    <corners android:radius="12dp" />
+    <stroke android:width="2dp" android:color="#4A9EFF" />
+</shape>
