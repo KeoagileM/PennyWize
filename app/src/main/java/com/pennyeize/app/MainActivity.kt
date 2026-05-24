@@ -52,6 +52,13 @@ class MainActivity : AppCompatActivity() {
             try {
                 val user = db.userDao().login(username, password)
                 if (user != null) {
+                    // Save userId and username to SharedPreferences
+                    val prefs = getSharedPreferences("pennywize_prefs", MODE_PRIVATE)
+                    prefs.edit()
+                        .putInt("userId", user.id)
+                        .putString("username", user.username)
+                        .apply()
+
                     Log.d("MainActivity", "User logged in: $username")
                     val intent = Intent(this@MainActivity, HomeActivity::class.java)
                     intent.putExtra("userId", user.id)
@@ -59,11 +66,15 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@MainActivity, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                    runOnUiThread {
+                        Toast.makeText(this@MainActivity, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("MainActivity", "Login error: ${e.message}")
-                Toast.makeText(this@MainActivity, "Login error occurred", Toast.LENGTH_SHORT).show()
+                runOnUiThread {
+                    Toast.makeText(this@MainActivity, "Login error occurred", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
