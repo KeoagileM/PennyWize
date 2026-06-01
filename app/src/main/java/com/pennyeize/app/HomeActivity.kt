@@ -53,7 +53,7 @@ class HomeActivity : AppCompatActivity() {
         loadDashboardData()
 
         btnViewExpenses.setOnClickListener {
-            startActivity(Intent(this, ViewExpensesActivity::class.java)
+            startActivity(Intent(this, AddExpenseActivity::class.java)
                 .putExtra("userId", userId))
         }
         btnViewCategory.setOnClickListener {
@@ -326,7 +326,7 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(this, "Already on Home", Toast.LENGTH_SHORT).show()
         }
         navExpenses.setOnClickListener {
-            startActivity(Intent(this, AddExpenseActivity::class.java)
+            startActivity(Intent(this, ViewExpensesActivity::class.java)
                 .putExtra("userId", userId))
         }
         navCategories.setOnClickListener {

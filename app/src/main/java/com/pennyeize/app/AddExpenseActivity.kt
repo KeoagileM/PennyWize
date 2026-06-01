@@ -181,6 +181,8 @@ class AddExpenseActivity : AppCompatActivity() {
         val navExpenses = findViewById<LinearLayout>(R.id.navExpenses)
         val navCategories = findViewById<LinearLayout>(R.id.navCategories)
         val navGoals = findViewById<LinearLayout>(R.id.navGoals)
+        val navAnalytics = findViewById<LinearLayout>(R.id.navAnalytics)
+
 
         setActiveTab(navExpenses)
         setInactiveTab(navHome)
@@ -208,6 +210,12 @@ class AddExpenseActivity : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
+        navAnalytics.setOnClickListener {
+            val intent = Intent(this, AnalyticsActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
     }
     private fun takePhoto() {
         val photoFile = createImageFile()

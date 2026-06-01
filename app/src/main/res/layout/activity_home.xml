@@ -153,10 +153,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="6dp"
-                    android:background="#2E5BFF"
+                    android:background="#1A2438"
                     android:orientation="vertical"
                     android:padding="16dp">
-
+<!--2E5BFF-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -220,6 +220,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
+
                 <Button
                     android:id="@+id/btnViewExpenses"
                     android:layout_width="0dp"
@@ -227,7 +228,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:backgroundTint="#2E5BFF"
-                    android:text="👁️ VIEW EXPENSES"
+                    android:text="➕ ADD EXPENSE"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
@@ -239,7 +240,7 @@
                     android:layout_height="80dp"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:backgroundTint="#1A2438"
+                    android:backgroundTint="#2E5BFF"
                     android:text="📋 CATEGORY TOTALS"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
@@ -251,7 +252,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="14dp"
-                android:backgroundTint="#1A2438"
+                android:backgroundTint="#2E5BFF"
                 android:text="🏆 Savings Goals"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"

@@ -150,7 +150,11 @@
                 android:layout_height="0dp"
                 android:divider="#1F2937"
                 android:dividerHeight="1dp"/>
+
+
+
         </LinearLayout>
+
     </ScrollView>
 
     <!-- ── Bottom Navigation (5 tabs) ─────────────────────────────────── -->
