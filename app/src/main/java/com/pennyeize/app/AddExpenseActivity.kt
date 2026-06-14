@@ -196,7 +196,9 @@ class AddExpenseActivity : AppCompatActivity() {
         }
 
         navExpenses.setOnClickListener {
-            Toast.makeText(this, "Already on Expenses", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ViewExpensesActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
         }
 
         navCategories.setOnClickListener {

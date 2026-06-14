@@ -222,7 +222,7 @@ class AnalyticsActivity : AppCompatActivity() {
                 .putExtra("userId", userId)); finish()
         }
         navExpenses.setOnClickListener {
-            startActivity(Intent(this, AddExpenseActivity::class.java)
+            startActivity(Intent(this, ViewExpensesActivity::class.java)
                 .putExtra("userId", userId))
         }
         navCategories.setOnClickListener {

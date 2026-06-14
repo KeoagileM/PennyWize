@@ -119,7 +119,7 @@ class CategoryTotalsActivity : AppCompatActivity() {
         }
 
         navExpenses.setOnClickListener {
-            val intent = Intent(this, AddExpenseActivity::class.java)
+            val intent = Intent(this, ViewExpensesActivity::class.java)
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
