@@ -62,6 +62,16 @@ class ViewExpensesActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
+        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(
+            R.id.fabAddExpense
+        ).setOnClickListener {
+            startActivity(
+                Intent(this, AddExpenseActivity::class.java)
+                    .putExtra("userId", userId)
+            )
+        }
+
         setupBottomNavigation()
     }
 
@@ -113,7 +123,7 @@ class ViewExpensesActivity : AppCompatActivity() {
         val navAnalytics = findViewById<LinearLayout>(R.id.navAnalytics)
 
         setInactiveTab(navHome)
-        setInactiveTab(navExpenses)
+        setActiveTab(navExpenses)
         setInactiveTab(navCategories)
         setInactiveTab(navGoals)
         setInactiveTab(navAnalytics)
@@ -123,10 +133,9 @@ class ViewExpensesActivity : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)        }
 
+
         navExpenses.setOnClickListener {
-            val intent = Intent(this, AddExpenseActivity::class.java)
-            intent.putExtra("userId", userId)
-            startActivity(intent)
+            Toast.makeText(this, "Already on Expenses", Toast.LENGTH_SHORT).show()
         }
 
         navCategories.setOnClickListener {
@@ -163,6 +172,19 @@ class ViewExpensesActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun setActiveTab(tab: LinearLayout) {
+        tab.setBackgroundColor(android.graphics.Color.parseColor("#DCD3EA"))
+        for (i in 0 until tab.childCount) {
+            val child = tab.getChildAt(i)
+            when (child) {
+                is TextView -> {
+                    child.setTextColor(android.graphics.Color.parseColor("#1F2937"))
+                    child.setTypeface(null, android.graphics.Typeface.BOLD)
+                }
+            }
+        }
+    }
 
     private fun loadExpenses() {
         val startDate = etStartDate.text.toString().trim()
