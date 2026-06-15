@@ -178,4 +178,4 @@ Developed as a personal finance management project using Android (Kotlin) and Ro
 This project focuses on practical budgeting logic, financial awareness, user engagement, and gamification principles to create a budgeting experience that is both educational and enjoyable. The achievement system and analytics dashboard encourage users to build healthy financial habits while maintaining long-term engagement with the application.
 
 ### Youtube demonstration Video:
--https://youtu.be/E4bYMsYYWsc
+-https://youtu.be/HmxzSLsstd4
