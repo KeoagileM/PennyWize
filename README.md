@@ -36,6 +36,74 @@ A 4-level rating system evaluates the user’s remaining balance:
 
 Each rating is color-coded and displayed alongside the remaining balance for quick insight.
 
+### Gamification & Achievement System
+
+To make budgeting more engaging and encourage positive financial habits, PennyWize includes a built-in achievement system.
+
+Users unlock achievements as they interact with the application and consistently manage their finances.
+
+### Achievement Progress Tracking
+
+Achievement dashboard displaying unlocked and locked achievements
+Progress indicator showing total achievements earned
+Motivates users to reach financial milestones
+
+### Available Achievements
+
+- Organiser
+  - Awarded when the user creates their first category.
+
+- Neat Freak
+  - Unlocked after creating multiple categories and maintaining organized expense records.
+
+- Master Planner
+  - Awarded when the user creates their first budget goal.
+
+- First Spend
+  - Unlocked after logging the first expense.
+
+- Tracking Pro
+  - Awarded after tracking a significant number of expenses.
+
+- Expense Hawk
+  - Unlocked when users actively monitor and manage their spending over time.
+
+- Penny Counter
+  - Awarded for successfully recording numerous expenses and demonstrating consistent financial tracking.
+
+- Ledger Legend
+  - A high-level achievement earned through long-term budgeting and expense management activity.
+
+### Gamification Benefits
+
+- Encourages consistent use of the application
+- Rewards positive financial behaviours
+- Increases user engagement and retention
+- Makes budgeting more enjoyable and less intimidating
+- Provides users with clear milestones and goals
+
+### Analytics Dashboard
+
+The application now includes an Analytics section that provides visual insights into spending behaviour.
+
+- Analytics Features
+- Current month tracking
+- Total monthly spending overview
+- Active category count
+- Budget progress monitoring
+- Spending by category visualization
+- Real-time budget status updates
+- Budget Progress Card
+
+- Displays:
+  - Current budget goal
+  - Monthly spending progress
+  - Remaining budget information
+  - Budget health indicators
+  - Spending by Category Chart
+
+Provides a visual breakdown of expenses by category, helping users identify spending patterns and make informed financial decisions.
+
 ### Category Tracking
 - Organize expenses by category
 - View category-based totals
@@ -115,6 +183,7 @@ Developed as a personal finance management project using Android (Kotlin) and Ro
 
 ##  Note
 
-This project focuses on practical budgeting logic, clean UI structure, and real-world financial tracking behaviour suitable for personal or academic use.
+This project focuses on practical budgeting logic, financial awareness, user engagement, and gamification principles to create a budgeting experience that is both educational and enjoyable. The achievement system and analytics dashboard encourage users to build healthy financial habits while maintaining long-term engagement with the application.
+
 ### Youtube demonstration Video:
 -https://youtu.be/E4bYMsYYWsc
