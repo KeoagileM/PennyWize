@@ -39,38 +39,30 @@ Each rating is color-coded and displayed alongside the remaining balance for qui
 ### Gamification & Achievement System
 
 To make budgeting more engaging and encourage positive financial habits, PennyWize includes a built-in achievement system.
-
 Users unlock achievements as they interact with the application and consistently manage their finances.
 
 ### Achievement Progress Tracking
 
-Achievement dashboard displaying unlocked and locked achievements
-Progress indicator showing total achievements earned
-Motivates users to reach financial milestones
+- Achievement dashboard displaying unlocked and locked achievements
+- Progress indicator showing total achievements earned
+- Motivates users to reach financial milestones
 
 ### Available Achievements
 
 - Organiser
   - Awarded when the user creates their first category.
-
 - Neat Freak
   - Unlocked after creating multiple categories and maintaining organized expense records.
-
 - Master Planner
   - Awarded when the user creates their first budget goal.
-
 - First Spend
   - Unlocked after logging the first expense.
-
 - Tracking Pro
   - Awarded after tracking a significant number of expenses.
-
 - Expense Hawk
   - Unlocked when users actively monitor and manage their spending over time.
-
 - Penny Counter
   - Awarded for successfully recording numerous expenses and demonstrating consistent financial tracking.
-
 - Ledger Legend
   - A high-level achievement earned through long-term budgeting and expense management activity.
 
